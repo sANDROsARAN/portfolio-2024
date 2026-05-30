@@ -1,28 +1,33 @@
 "use client";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import FluidBackground from "./components/FluidBackground";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#0a0a0a] text-[#ededed] selection:bg-green-500 selection:text-black">
-      {/* Subtle Grain Overlay */}
-      <div className="fixed inset-0 pointer-events-none opacity-[0.03] z-50 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
+    <main className="min-h-screen text-[#ededed] selection:bg-accentblue selection:text-black">
+      <FluidBackground />
 
-      <nav className="p-8 flex justify-between items-center uppercase tracking-widest text-xs border-b border-white/10">
-        <span className="font-bold">Sandro Saran / 2026</span>
-        <div className="space-x-8">
-          <a href="#work" className="hover:text-green-500 transition-colors">
-            Work
-          </a>
-          <a href="#about" className="hover:text-green-500 transition-colors">
-            About
-          </a>
-        </div>
-      </nav>
+      <div>
+        <nav className="p-8 flex justify-between items-center uppercase tracking-widest text-xs border-b border-white/10 bg-white">
+          <span className="font-bold text-neutral-500">Sandro Saran / 2026</span>
+          <div className="space-x-8">
+            <a href="#work" className="hover:text-accentblue transition-colors lowercase text-neutral-500">
+              work
+            </a>
+            <a href="#about" className="hover:text-accentblue transition-colors lowercase text-neutral-500">
+              about
+            </a>
+            <button className="hover:text-accentblue transition-colors text-neutral-500">
+              day/night
+            </button>
+          </div>
+        </nav>
+      </div>
 
       <section className="px-8 py-24 md:py-40">
         <h1 className="text-6xl md:text-[12vw] font-black uppercase leading-[0.8] tracking-tighter">
-          Sandro <br /> Saran<span className="text-green-600">.</span>
+          Sandro <br /> Saran<span className="text-accentblue">.</span>
         </h1>
         <p className="mt-8 max-w-md text-gray-400 font-mono text-sm">
           Trying to develop. Based in Melbourne.
@@ -30,14 +35,14 @@ export default function Home() {
       </section>
 
       <section id="work" className="px-8 py-12 border-t border-white/10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-neutral-100/50 p-10">
           {/* LEFT COLUMN: The Visual */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative h-[50vh] w-full overflow-hidden bg-neutral-900 group grayscale hover:grayscale-0 transition-all duration-700"
+            className="relative h-[50vh] w-full overflow-hidden bg-neutral-900 group hover:grayscale-0 transition-all duration-700"
           >
             <a href="https://www.rango.com.au/" target="_blank">
               <Image
@@ -48,7 +53,7 @@ export default function Home() {
               />
               {/* Decorative Label for the image */}
               <div className="absolute bottom-4 left-4 mix-blend-difference">
-                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-white">
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-black">
                   Fig. 01 — Platform Overview
                 </p>
               </div>
@@ -59,13 +64,13 @@ export default function Home() {
           <div className="flex flex-col justify-between h-full lg:sticky lg:top-24">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <span className="h-px w-12 bg-green-600"></span>
-                <p className="text-xs uppercase tracking-[0.3em] text-green-600 font-bold">
+                <span className="h-px w-12 bg-accentblue-600"></span>
+                <p className="text-xs uppercase tracking-[0.3em] text-accentblue-600 font-bold">
                   Project Showcase
                 </p>
               </div>
 
-              <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8]">
+              <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-[#ffc655]">
                 RANGO
               </h2>
 
@@ -117,6 +122,15 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      <section id="about" className="px-8 py-12 border-t border-white/10">
+        <div className="flex items-center gap-4 mb-6">
+          <span className="h-px w-12 bg-accentblue-600"></span>
+          <p className="text-xs uppercase tracking-[0.3em] text-accentblue-600 font-bold">
+            About
+          </p>
         </div>
       </section>
     </main>
