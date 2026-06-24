@@ -1,37 +1,26 @@
 "use client";
 import { motion } from "framer-motion";
+import React, { useState } from "react";
 import Image from "next/image";
 import FluidBackground from "./components/FluidBackground";
+import Navbar from "./components/Navbar";
 
 export default function Home() {
+  const [currentBg, setCurrentBg] = useState<[number, number, number]>([1.0, 1.0, 1.0]);
+  const [currentBlob, setCurrentBlob] = useState<[number, number, number]>([0.7055, 0.8076, 1.45]);
+  const [dayStatus, setDayStatus] = useState<boolean>(true);
+  
   return (
     <main className="min-h-screen text-[#ededed] selection:bg-accentblue selection:text-black">
-      <FluidBackground />
+      <FluidBackground bgColor={currentBg} blobColor={currentBlob} />
 
-      <div>
-        <nav className="p-8 flex justify-between items-center uppercase tracking-widest text-xs border-b border-white/10 bg-white">
-          <span className="font-bold text-neutral-500">Sandro Saran / 2026</span>
-          <div className="space-x-8">
-            <a href="#work" className="hover:text-accentblue transition-colors lowercase text-neutral-500">
-              work
-            </a>
-            <a href="#about" className="hover:text-accentblue transition-colors lowercase text-neutral-500">
-              about
-            </a>
-            <button className="hover:text-accentblue transition-colors text-neutral-500">
-              day/night
-            </button>
-          </div>
-        </nav>
-      </div>
-
+      <Navbar onColorChange={setCurrentBg} currentBg={currentBg} onColorBlob={setCurrentBlob} currentBlob={currentBlob} currentDay={dayStatus} onDayChange={setDayStatus}  />
+      
       <section className="px-8 py-24 md:py-40">
         <h1 className="text-6xl md:text-[12vw] font-black uppercase leading-[0.8] tracking-tighter">
-          Sandro <br /> Saran<span className="text-accentblue">.</span>
+          Sandro <br /> Saran<span className={dayStatus ? "text-accentblue" : "text-green-500" }>.</span>
         </h1>
-        <p className="mt-8 max-w-md text-gray-400 font-mono text-sm">
-          Trying to develop. Based in Melbourne.
-        </p>
+        <p className="mt-8 max-w-md text-gray-400 font-mono text-sm">W.B.R</p>
       </section>
 
       <section id="work" className="px-8 py-12 border-t border-white/10">
