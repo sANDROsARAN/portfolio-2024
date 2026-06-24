@@ -35,13 +35,13 @@ export default function Navbar({ currentBg, onColorChange, currentBlob, onColorB
         <div className="space-x-8">
           <a
             href="#work"
-            className="hover:text-accentblue transition-colors lowercase text-neutral-500"
+            className={currentDay ? "hover:text-accentblue transition-colors text-neutral-500 font-medium lowercase" : "hover:text-green-500 transition-colors text-neutral-500 font-medium lowercase"}
           >
             work
           </a>
           <a
             href="#about"
-            className="hover:text-accentblue transition-colors lowercase text-neutral-500"
+            className={currentDay ? "hover:text-accentblue transition-colors text-neutral-500 font-medium lowercase" : "hover:text-green-500 transition-colors text-neutral-500 font-medium lowercase"}
           >
             about
           </a>

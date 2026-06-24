@@ -24,7 +24,7 @@ export default function Home() {
       </section>
 
       <section id="work" className="px-8 py-12 border-t border-white/10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-neutral-100/50 p-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-neutral-100/10 p-10">
           {/* LEFT COLUMN: The Visual */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -50,7 +50,7 @@ export default function Home() {
           </motion.div>
 
           {/* RIGHT COLUMN: The Intel */}
-          <div className="flex flex-col justify-between h-full lg:sticky lg:top-24">
+          <div className="flex flex-col justify-between h-full lg:sticky lg:top-24 mix-blend-difference">
             <div>
               <div className="flex items-center gap-4 mb-6">
                 <span className="h-px w-12 bg-accentblue-600"></span>
