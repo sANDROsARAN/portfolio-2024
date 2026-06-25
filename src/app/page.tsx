@@ -24,7 +24,8 @@ export default function Home() {
       </section>
 
       <section id="work" className="px-8 py-12 border-t border-white/10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-neutral-100/10 p-10">
+        <div className={dayStatus ? "grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-neutral-100/70 p-10" :
+           "grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-gray-950/70 p-10"}>
           {/* LEFT COLUMN: The Visual */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -41,7 +42,7 @@ export default function Home() {
                 className="object-cover transition-transform duration-[2s] group-hover:scale-105 relative"
               />
               {/* Decorative Label for the image */}
-              <div className="absolute bottom-4 left-4 mix-blend-difference">
+              <div className="absolute bottom-4 left-4">
                 <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-black">
                   Fig. 01 — Platform Overview
                 </p>
@@ -50,11 +51,10 @@ export default function Home() {
           </motion.div>
 
           {/* RIGHT COLUMN: The Intel */}
-          <div className="flex flex-col justify-between h-full lg:sticky lg:top-24 mix-blend-difference">
+          <div className="flex flex-col justify-between h-full lg:sticky lg:top-24">
             <div>
               <div className="flex items-center gap-4 mb-6">
-                <span className="h-px w-12 bg-accentblue-600"></span>
-                <p className="text-xs uppercase tracking-[0.3em] text-accentblue-600 font-bold">
+                <p className={dayStatus ? "text-xs uppercase tracking-[0.3em] text-black font-bold" : "text-xs uppercase tracking-[0.3em] text-white font-bold"}>
                   Project Showcase
                 </p>
               </div>
@@ -64,10 +64,10 @@ export default function Home() {
               </h2>
 
               <div className="space-y-6 max-w-lg">
-                <p className="text-xl text-gray-200 leading-tight uppercase font-semibold">
+                <p className={dayStatus ? "text-xl text-black leading-tight uppercase font-semibold" : "text-xl text-white leading-tight uppercase font-semibold"}>
                   Making your references work for you
                 </p>
-                <p className="text-sm font-mono text-gray-500 leading-relaxed italic">
+                <p className={dayStatus ? "text-sm font-mono text-gray-500 leading-relaxed" : "text-sm font-mono text-gray-300 leading-relaxed"}>
                   A dedicated platform for centralizing and showcasing
                   professional peer references. Rango bridges the gap between
                   static resumes and real-world credibility by allowing
@@ -79,7 +79,7 @@ export default function Home() {
             </div>
 
             {/* Metadata Table */}
-            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 gap-8">
+            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 gap-8 bg-blend-difference">
               <div>
                 <p className="text-[10px] text-gray-600 uppercase mb-2 font-bold tracking-widest">
                   Stack

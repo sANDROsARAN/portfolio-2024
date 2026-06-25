@@ -1,5 +1,4 @@
 "use client";
-import { b } from "framer-motion/client";
 import React, { useEffect, useRef } from "react";
 
 const fragmentShaderSource = `
@@ -32,12 +31,15 @@ void main() {
     
     vec3 color_accent;
 
-    if(u_scroll < 0.4){
+    float start_t = 0.4;
+    float end_t = 0.6;
+
+    if(u_scroll <= start_t){
       color_accent = color_blob;
-    } else if (u_scroll > 0.6){
+    } else if (u_scroll >= end_t){
       color_accent = yellow;
     } else {
-      color_accent = mix(color_blob, yellow, ((u_scroll * (0.6-0.4)) / (0.6-0.4)) );  
+      color_accent = mix(color_blob, yellow, ((u_scroll - start_t) / (end_t - start_t)));  
     }
 
     vec3 final_color = mix(color_bg, color_accent, final_mask);
