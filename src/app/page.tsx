@@ -24,6 +24,7 @@ export default function Home() {
       </section>
 
       <section id="work" className="px-8 py-12 border-t border-white/10">
+      
         <div className={dayStatus ? "grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-neutral-100/70 p-10" :
            "grid grid-cols-1 lg:grid-cols-2 gap-12 items-start bg-gray-950/70 p-10"}>
           {/* LEFT COLUMN: The Visual */}
@@ -59,7 +60,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-[#ffc655]">
+              <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-rango-yellow">
                 RANGO
               </h2>
 
@@ -104,7 +105,7 @@ export default function Home() {
                 <a
                   href="https://www.rango.com.au/"
                   target="_blank"
-                  className="inline-block w-full text-center py-4 border border-white/20 hover:bg-white hover:text-black transition-all duration-300 font-bold uppercase tracking-widest text-xs"
+                  className="inline-block w-full text-center py-4 border border-white/20 hover:bg-rango-yellow hover:text-black transition-all duration-300 font-bold uppercase tracking-widest text-xs bg-black/20 text-white"
                 >
                   Live Site ↗
                 </a>
