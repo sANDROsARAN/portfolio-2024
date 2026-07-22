@@ -28,18 +28,25 @@ void main() {
     vec3 color_bg = u_color_bg; 
     vec3 color_blob = u_color_blob;
     vec3 yellow = vec3(1.0, 0.776, 0.333);
+    vec3 green = vec3(207.0/255.0, 1.0, 4.0/255.0);
     
     vec3 color_accent;
 
-    float start_t = 0.4;
-    float end_t = 0.6;
+    float start_t1 = 0.15;
+    float end_t1 = 0.3;
+    float start_t2 = 0.6;
+    float end_t2 = 0.75;
 
-    if(u_scroll <= start_t){
+    if(u_scroll <= start_t1){
       color_accent = color_blob;
-    } else if (u_scroll >= end_t){
+    } else if (u_scroll >= start_t1 && u_scroll <= end_t1){
+      color_accent = mix(color_blob, yellow, ((u_scroll - start_t1) / (end_t1 - start_t1)));  
+    } else if (u_scroll >= end_t1 && u_scroll <= start_t2){
       color_accent = yellow;
+    } else if (u_scroll >= start_t2 && u_scroll <= end_t2){
+      color_accent = mix(yellow, green, ((u_scroll - start_t2) / (end_t2 - start_t2)));  
     } else {
-      color_accent = mix(color_blob, yellow, ((u_scroll - start_t) / (end_t - start_t)));  
+      color_accent = green;
     }
 
     vec3 final_color = mix(color_bg, color_accent, final_mask);
@@ -54,16 +61,19 @@ void main() {
 // 1. Define Props Interface for normalized RGB colors [R, G, B] between 0.0 and 1.0
 interface FluidBackgroundProps {
   bgColor?: [number, number, number];
-  blobColor?:[number, number, number];
+  blobColor?: [number, number, number];
 }
 
-export default function FluidBackground({ bgColor = [1.0, 1.0, 1.0], blobColor = [0.7055, 0.8076, 1.45] }: FluidBackgroundProps) {
+export default function FluidBackground({
+  bgColor = [1.0, 1.0, 1.0],
+  blobColor = [0.7055, 0.8076, 1.45],
+}: FluidBackgroundProps) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
-  
+
   // 2. Point the ref directly to incoming prop color values
   const colorRef = useRef<[number, number, number]>(bgColor);
-  const colorRefBlob  =useRef<[number, number, number]>(blobColor);
-  
+  const colorRefBlob = useRef<[number, number, number]>(blobColor);
+
   // Keep the render loop ref updated whenever the prop updates
   useEffect(() => {
     colorRef.current = bgColor;
@@ -84,7 +94,11 @@ export default function FluidBackground({ bgColor = [1.0, 1.0, 1.0], blobColor =
     window.addEventListener("resize", resize);
     resize();
 
-    const createShader = (gl: WebGLRenderingContext, type: number, source: string) => {
+    const createShader = (
+      gl: WebGLRenderingContext,
+      type: number,
+      source: string,
+    ) => {
       const shader = gl.createShader(type)!;
       gl.shaderSource(shader, source);
       gl.compileShader(shader);
@@ -137,10 +151,20 @@ export default function FluidBackground({ bgColor = [1.0, 1.0, 1.0], blobColor =
       gl.uniform1f(timeLoc, time * 0.001);
       gl.uniform2f(resLoc, canvas.width, canvas.height);
       gl.uniform1f(scrollLoc, scrollPercent);
-      
+
       // Pass values from the updated ref right into WebGL uniform loop
-      gl.uniform3f(bgColLoc, colorRef.current[0], colorRef.current[1], colorRef.current[2]);
-      gl.uniform3f(bgColBlob, colorRefBlob.current[0], colorRefBlob.current[1], colorRefBlob.current[2]);
+      gl.uniform3f(
+        bgColLoc,
+        colorRef.current[0],
+        colorRef.current[1],
+        colorRef.current[2],
+      );
+      gl.uniform3f(
+        bgColBlob,
+        colorRefBlob.current[0],
+        colorRefBlob.current[1],
+        colorRefBlob.current[2],
+      );
 
       gl.drawArrays(gl.TRIANGLES, 0, 6);
       requestAnimationFrame(render);
@@ -153,5 +177,7 @@ export default function FluidBackground({ bgColor = [1.0, 1.0, 1.0], blobColor =
     };
   }, []);
 
-  return <canvas ref={canvasRef} className="fixed inset-0 z-[-1] w-full h-full" />;
+  return (
+    <canvas ref={canvasRef} className="fixed inset-0 z-[-1] w-full h-full" />
+  );
 }

@@ -195,7 +195,8 @@ export default function Home() {
                   }
                 >
                   Soup People approached asking for a way to distribute their music autonomously, removing the need to rely
-                  on a third-party service. The Soup Web 
+                  on a third-party service. The Soup Web is a free online streaming service, custom made to represent the client 
+                  music visually.
                 </p>
               </div>
             </div>
@@ -209,7 +210,7 @@ export default function Home() {
                 <ul className="text-xs font-mono text-gray-400 space-y-1">
                   <li>Next.js 14</li>
                   <li>Tailwind CSS</li>
-                  <li>AWS</li>
+                  <li>Supabase</li>
                 </ul>
               </div>
               <div>
