@@ -34,10 +34,16 @@ export default function Home() {
             .
           </span>
         </h1>
-        <p className="mt-8 max-w-md text-gray-400 font-mono text-sm">W.B.R</p>
+        <p className="mt-8 max-w-md text-gray-400 font-mono text-sm">Development and Design</p>
       </section>
 
       <section id="work" className="px-8 py-12 border-t border-white/10">
+      <div className="flex items-center gap-4 mb-6">
+          <span className="h-px w-12 bg-zinc-400"></span>
+          <p className="text-xs uppercase tracking-[0.3em] text-zinc-400 font-bold">
+            Work
+          </p>
+        </div>
         {/* Rango */}
         <div
           className={
@@ -173,7 +179,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-rango-yellow">
+              <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-soup-grey">
                 SOUP WEB
               </h2>
 
@@ -202,7 +208,7 @@ export default function Home() {
             </div>
 
             {/* Metadata Table */}
-            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 gap-8 bg-blend-difference">
+            <div className="mt-12 pt-8 border-t border-white/10 grid grid-cols-2 gap-8">
               <div>
                 <p className="text-[10px] text-gray-600 uppercase mb-2 font-bold tracking-widest">
                   Stack
@@ -225,9 +231,9 @@ export default function Home() {
               </div>
               <div className="col-span-2 pt-4">
                 <a
-                  href="https://www.rango.com.au/"
+                  href="https://soup-web.vercel.app/"
                   target="_blank"
-                  className="inline-block w-full text-center py-4 border border-white/20 hover:bg-rango-yellow hover:text-black transition-all duration-300 font-bold uppercase tracking-widest text-xs bg-black/20 text-white"
+                  className="inline-block w-full text-center py-4 border border-white/20 hover:bg-soup-grey hover:text-black transition-all duration-300 font-bold uppercase tracking-widest text-xs bg-black/20 text-white"
                 >
                   Live Site ↗
                 </a>
@@ -241,17 +247,17 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative h-[50vh] w-full overflow-hidden bg-neutral-900 group hover:grayscale-0 transition-all duration-700"
           >
-            <a href="https://www.rango.com.au/" target="_blank">
+            <a href="https://soup-web.vercel.app/" target="_blank">
               <Image
-                src="/assets/Rango_hero.png"
-                alt="Rango Project Detail"
+                src="/assets/soup_hero.png"
+                alt="Soup People Project Detail"
                 fill
                 className="object-cover transition-transform duration-[2s] group-hover:scale-105 relative"
               />
               {/* Decorative Label for the image */}
               <div className="absolute bottom-4 left-4">
-                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-black">
-                  Fig. 01 — Platform Overview
+                <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-white">
+                  Fig. 02 — Streaming Service
                 </p>
               </div>
             </a>
@@ -261,8 +267,8 @@ export default function Home() {
 
       <section id="about" className="px-8 py-12 border-t border-white/10">
         <div className="flex items-center gap-4 mb-6">
-          <span className="h-px w-12 bg-accentblue-600"></span>
-          <p className="text-xs uppercase tracking-[0.3em] text-accentblue-600 font-bold">
+          <span className="h-px w-12 bg-zinc-400"></span>
+          <p className="text-xs uppercase tracking-[0.3em] text-zinc-400 font-bold">
             About
           </p>
         </div>

@@ -27,8 +27,9 @@ void main() {
 
     vec3 color_bg = u_color_bg; 
     vec3 color_blob = u_color_blob;
-    vec3 yellow = vec3(1.0, 0.776, 0.333);
-    vec3 green = vec3(207.0/255.0, 1.0, 4.0/255.0);
+    vec3 rango = vec3(1.0, 0.776, 0.333);
+    // vec3 soup = vec3(207.0/255.0, 1.0, 4.0/255.0);
+    vec3 soup = vec3(0.459, 0.451, 0.478);
     
     vec3 color_accent;
 
@@ -40,13 +41,13 @@ void main() {
     if(u_scroll <= start_t1){
       color_accent = color_blob;
     } else if (u_scroll >= start_t1 && u_scroll <= end_t1){
-      color_accent = mix(color_blob, yellow, ((u_scroll - start_t1) / (end_t1 - start_t1)));  
+      color_accent = mix(color_blob, rango, ((u_scroll - start_t1) / (end_t1 - start_t1)));  
     } else if (u_scroll >= end_t1 && u_scroll <= start_t2){
-      color_accent = yellow;
+      color_accent = rango;
     } else if (u_scroll >= start_t2 && u_scroll <= end_t2){
-      color_accent = mix(yellow, green, ((u_scroll - start_t2) / (end_t2 - start_t2)));  
+      color_accent = mix(rango, soup, ((u_scroll - start_t2) / (end_t2 - start_t2)));  
     } else {
-      color_accent = green;
+      color_accent = soup;
     }
 
     vec3 final_color = mix(color_bg, color_accent, final_mask);
