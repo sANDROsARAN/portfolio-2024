@@ -157,7 +157,7 @@ export default function Home() {
           </div>
         </div>
         <br/>
-        {/* Soup Web */}
+        {/* Overtime Calculator */}
         <div
           className={
             dayStatus
@@ -179,8 +179,8 @@ export default function Home() {
                 </p>
               </div>
 
-              <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-soup-grey">
-                SOUP WEB
+              <h2 className="text-6xl md:text-8xl font-black uppercase tracking-tighter mb-8 leading-[0.8] text-[#db0718]">
+                Teacher Workload Tracker
               </h2>
 
               <div className="space-y-6 max-w-lg">
@@ -191,7 +191,7 @@ export default function Home() {
                       : "text-xl text-white leading-tight uppercase font-semibold"
                   }
                 >
-                  Taking back ownership of music
+                  Tracking and making teacher workload visible
                 </p>
                 <p
                   className={
@@ -200,9 +200,7 @@ export default function Home() {
                       : "text-sm font-mono text-gray-300 leading-relaxed"
                   }
                 >
-                  Soup People approached asking for a way to distribute their music autonomously, removing the need to rely
-                  on a third-party service. The Soup Web is a free online streaming service, custom made to represent the client 
-                  music visually.
+                  Designed to help educators track daily task allocations, lesson planning, grading time, and administrative duties. The Teacher Workload Tracker provides a clear breakdown of professional workloads, helping to monitor out-of-hours commitments and deprioritised duties efficiently.
                 </p>
               </div>
             </div>
@@ -214,9 +212,9 @@ export default function Home() {
                   Stack
                 </p>
                 <ul className="text-xs font-mono text-gray-400 space-y-1">
-                  <li>Next.js 14</li>
-                  <li>Tailwind CSS</li>
+                  <li>Next.js</li>
                   <li>Supabase</li>
+                  <li>TypeScript</li>
                 </ul>
               </div>
               <div>
@@ -224,16 +222,16 @@ export default function Home() {
                   Services
                 </p>
                 <ul className="text-xs font-mono text-gray-400 space-y-1">
-                  <li>Full Stack Dev</li>
+                  <li>Frontend Dev</li>
                   <li>UI/UX Design</li>
-                  <li>System Architecture</li>
+                  <li>Data Analytics</li>
                 </ul>
               </div>
               <div className="col-span-2 pt-4">
                 <a
-                  href="https://soup-web.vercel.app/"
+                  href="https://overtime-calculator-henna.vercel.app/"
                   target="_blank"
-                  className="inline-block w-full text-center py-4 border border-white/20 hover:bg-soup-grey hover:text-black transition-all duration-300 font-bold uppercase tracking-widest text-xs bg-black/20 text-white"
+                  className="inline-block w-full text-center py-4 border border-white/20 hover:bg-[#db0718] hover:text-black transition-all duration-300 font-bold uppercase tracking-widest text-xs bg-black/20 text-white"
                 >
                   Live Site ↗
                 </a>
@@ -247,17 +245,17 @@ export default function Home() {
             viewport={{ once: true }}
             className="relative h-[50vh] w-full overflow-hidden bg-neutral-900 group hover:grayscale-0 transition-all duration-700"
           >
-            <a href="https://soup-web.vercel.app/" target="_blank">
+            <a href="https://overtime-calculator-henna.vercel.app/" target="_blank">
               <Image
-                src="/assets/soup_hero.png"
-                alt="Soup People Project Detail"
+                src="/assets/overtime_hero.png"
+                alt="Overtime Calculator Project Detail"
                 fill
                 className="object-cover transition-transform duration-[2s] group-hover:scale-105 relative"
               />
               {/* Decorative Label for the image */}
               <div className="absolute bottom-4 left-4">
                 <p className="text-[10px] font-mono uppercase tracking-[0.2em] text-white">
-                  Fig. 02 — Streaming Service
+                  Fig. 02 — Workload Tracker
                 </p>
               </div>
             </a>
@@ -265,14 +263,14 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="about" className="px-8 py-12 border-t border-white/10">
+      {/* <section id="about" className="px-8 py-12 border-t border-white/10">
         <div className="flex items-center gap-4 mb-6">
           <span className="h-px w-12 bg-zinc-400"></span>
           <p className="text-xs uppercase tracking-[0.3em] text-zinc-400 font-bold">
             About
           </p>
         </div>
-      </section>
+      </section> */}
     </main>
   );
 }

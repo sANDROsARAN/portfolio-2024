@@ -29,7 +29,7 @@ void main() {
     vec3 color_blob = u_color_blob;
     vec3 rango = vec3(1.0, 0.776, 0.333);
     // vec3 soup = vec3(207.0/255.0, 1.0, 4.0/255.0);
-    vec3 soup = vec3(0.459, 0.451, 0.478);
+    vec3 soup = vec3(219./255., 7./255., 4./255.);
     
     vec3 color_accent;
 
